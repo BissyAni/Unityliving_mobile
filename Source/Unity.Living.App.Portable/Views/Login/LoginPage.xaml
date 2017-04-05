@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Unity.Living.App.Portable.Controls;assembly=Unity.Living.App.Portable"
+             x:Class="Unity.Living.App.Portable.Views.Login.LoginPage"
+             BackgroundColor="White">
+  <ScrollView>
+    <StackLayout VerticalOptions="Center" Padding="30">
+      <Image Source="login.png" HorizontalOptions="CenterAndExpand"/>
+       <Entry Placeholder="Apartment Name" Focused="ApartmentName_OnFocused" IsVisible="{Binding EntryVisibility,Mode=TwoWay}"  x:Name="ApartmentName" Text="{Binding ApartmentName}" TextColor="Black" ></Entry>
+		<Frame HasShadow="True" Padding="0"  x:Name="apartmentSearch"   Unfocused="SearchAndEntryVisibility" IsVisible="{Binding SearchBarVisibility,Mode=TwoWay}" OutlineColor="Gray">
+					<controls:CustomSearchbar Placeholder="Search Apartment" HeightRequest="50"  Text="{Binding SearchText}" TextChanged="SearchBarTextChanged" />
+		</Frame>
+		<Frame x:Name="listFrame" HasShadow="true" IsVisible="{Binding FrameVisibility}" OutlineColor = "Color.Gray" BackgroundColor="White" Padding="0" VerticalOptions="FillAndExpand">
+			<ListView CachingStrategy="RecycleElement" x:Name="ApartmentListView"
+			  HasUnevenRows="true"
+		      HeightRequest="{Binding ListHeight}"
+			  ItemSelected="Apartment_OnItemSelected"
+			  BackgroundColor="#ecf2f9"
+			  SelectedItem="{Binding ApartmentSelected}">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<Grid Padding="20">
+								<Label Text="{Binding Name}" FontSize="16"/>
+							</Grid>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</Frame>
+      <Entry Placeholder="Enter your Username" Focused="SearchAndEntryVisibility" TextColor="Black" x:Name="loginuserName" ></Entry>
+      <Entry Placeholder="Enter your Password" Focused="SearchAndEntryVisibility" IsPassword="True" x:Name="loginpassword"></Entry>
+		
+      <Button Text="LOGIN" BorderRadius="6" WidthRequest="50" Clicked="SignInButton_Clicked" TextColor="White" BackgroundColor="#0389BB" x:Name="loginsignInButton"/>
+    </StackLayout>
+  </ScrollView>
+</ContentPage>

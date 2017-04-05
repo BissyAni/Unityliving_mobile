@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ui:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:ui="clr-namespace:Unity.Living.App.Portable;assembly=Unity.Living.App.Portable"
+                    x:Class="Unity.Living.App.Portable.Views.Account.AccountStatement">
+
+  <Grid BackgroundColor="#e0e0e0" Padding="10">
+    <Frame HasShadow="true" OutlineColor="Color.Gray" Padding="0">
+      <Grid Padding="10" x:Name="HeaderSection" BackgroundColor="White">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="3"/>
+          <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Padding="2">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2.2*"/>
+            <ColumnDefinition Width="1.4*"/>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="1.9*"/>
+            <ColumnDefinition Width="1.7*"/>
+          </Grid.ColumnDefinitions>
+          <Label Grid.Row="0" Grid.Column="0" Text="Date" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap" FontSize="14"/>
+          <Label Grid.Row="0" Grid.Column="1" Text="Doc" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap" FontSize="14"/>
+          <Label Grid.Row="0" Grid.Column="2" Text="Debit" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap" FontSize="14"/>
+          <Label Grid.Row="0" Grid.Column="3" Text="Credit" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap" FontSize="14"/>
+          <Label Grid.Row="0" Grid.Column="4" Text="Dues Balance" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap" FontSize="14"/>
+          <Label Grid.Row="0" Grid.Column="5" Text="Advance Balance" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap" FontSize="14"/>
+        </Grid>
+        <Grid Grid.Row="1" BackgroundColor="#e0e0e0"/>
+        <ListView x:Name="AccountStatementView" VerticalOptions="FillAndExpand" Grid.Row="2">
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <ViewCell>
+                <Grid Padding="2">
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2.2*"/>
+                    <ColumnDefinition Width="1.3*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="1.9*"/>
+                    <ColumnDefinition Width="1.6*"/>
+                  </Grid.ColumnDefinitions>
+                  <Label Text="{Binding Date}" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap"/>
+                  <Label Text="{Binding Doc}" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap"/>
+                  <Label Text="{Binding Debit}" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap"/>
+                  <Label Text="{Binding Credit}" Grid.Column="3" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap"/>
+                  <Label Text="{Binding DuesBalance}" Grid.Column="4" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap"/>
+                  <Label Text="{Binding AdvanceBalance}" Grid.Column="5" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap"/>
+                </Grid>
+              </ViewCell>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
+      </Grid>
+    </Frame>
+  </Grid>
+</ui:BaseContentPage>

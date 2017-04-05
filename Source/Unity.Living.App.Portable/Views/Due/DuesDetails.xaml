@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Unity.Living.App.Portable.Views.Due.DuesDetails" Title="Dues Details">
+  <StackLayout Padding="10">
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="2*" />
+      </Grid.ColumnDefinitions>
+      <Button x:Name="btnAccountStatement" TextColor="White" Grid.Row="0" Grid.Column="1" Text="Account Statement"  BackgroundColor="#0389BB" HorizontalOptions="Fill"/>
+      <Button x:Name="btnDuesAccountStatement" TextColor="White" Grid.Row="1" Grid.Column="1" Text="Dues Account Statement"  BackgroundColor="#0389BB" HorizontalOptions="Fill"/>
+    </Grid>
+  </StackLayout> 
+</ContentPage>

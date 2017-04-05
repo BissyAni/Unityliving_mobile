@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Unity.Living.App.Portable.Views.Menu.MenuPage"
+    Title="{Binding Title}"
+    Icon="{Binding Icon}">
+  
+	<ContentPage.Content>
+		<StackLayout BackgroundColor="White">
+			<ListView
+				   CachingStrategy="RecycleElement"
+				   SeparatorColor="White"
+				   HasUnevenRows="True"
+				   x:Name="ListViewMenu">
+        
+				<ListView.Header>
+					<Grid RowSpacing="0" BackgroundColor="#0288d1" Padding="10" ColumnSpacing="15">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="60"/>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="10"/>
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="40"/>
+							<RowDefinition Height="80"/>
+							<RowDefinition Height="2"/>
+						</Grid.RowDefinitions>
+
+						  <BoxView Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+              <Image Grid.Row="1" Grid.Column="0" Source="profile7.png" VerticalOptions="Center" HorizontalOptions="Start"/>
+            <StackLayout Orientation="Vertical" Grid.Column="1" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Start">
+						  <Label TextColor="White" FontSize="18" x:Name="loggedUsername" VerticalOptions="Center" HorizontalOptions="Start"/>
+              <Label TextColor="White" FontSize="16" x:Name="loggedUserEmail" VerticalOptions="Center" HorizontalOptions="Start"/>
+            </StackLayout>
+            </Grid>
+          
+				</ListView.Header>
+
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+              <StackLayout Orientation="Vertical" BackgroundColor="#e0e0e0" Spacing="10" Padding="1">                
+                <Grid Padding="10,15,10,15" BackgroundColor="White" VerticalOptions="Center" HorizontalOptions="Start" ColumnSpacing="15">
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                  </Grid.ColumnDefinitions>
+                  <Image Source="{Binding Icon}" Grid.Column="0"/>
+                  <Label Grid.Column="1" Text="{Binding Title}" FontSize="16" TextColor="Black"/>
+                </Grid>                
+              </StackLayout>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+			<Label Text="Version 1.0.6" HorizontalOptions="Center" VerticalOptions="End" FontSize="8"/>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

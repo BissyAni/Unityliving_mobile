@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ui:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ui="clr-namespace:Unity.Living.App.Portable;assembly=Unity.Living.App.Portable"
+             x:Class="Unity.Living.App.Portable.Views.Charge.ChargeItem" Title="Charge Item Details">
+	<ContentPage.ToolbarItems >
+	</ContentPage.ToolbarItems>
+	<StackLayout Padding="10">
+		<ScrollView>
+			<Grid x:Name="ChargeItems">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="5*" />
+					<ColumnDefinition Width="5*" />
+				</Grid.ColumnDefinitions>
+				<Label Text="House" HorizontalOptions="StartAndExpand" Grid.Row="0" Grid.Column="0"/>
+				<Label x:Name="HouseName" HorizontalOptions="StartAndExpand" Grid.Row="0" Grid.Column="1"/>
+				<Label Text="Date" HorizontalOptions="StartAndExpand" Grid.Row="1" Grid.Column="0"/>
+				<Label x:Name="Date" HorizontalOptions="StartAndExpand" Grid.Row="1" Grid.Column="1"/>
+				<Label Text="Description" HorizontalOptions="StartAndExpand" Grid.Row="2" Grid.Column="0"/>
+				<Label x:Name="Description" HorizontalOptions="StartAndExpand" Grid.Row="2" Grid.Column="1"/>
+				<Label Text="Due Date" HorizontalOptions="StartAndExpand" Grid.Row="3" Grid.Column="0"/>
+				<Label x:Name="DueDate" HorizontalOptions="StartAndExpand" Grid.Row="3" Grid.Column="1"/>
+				<Label Text="Fine Setting" HorizontalOptions="StartAndExpand" Grid.Row="4" Grid.Column="0"/>
+				<Label x:Name="FineSetting" HorizontalOptions="StartAndExpand" Grid.Row="4" Grid.Column="1"/>
+				<Label Text="Next Fine Process Date" HorizontalOptions="StartAndExpand" Grid.Row="5" Grid.Column="0"/>
+				<Label x:Name="NextFineProcessDate" HorizontalOptions="StartAndExpand" Grid.Row="5" Grid.Column="1"/>
+				<Label Text="Auto settle from advance" HorizontalOptions="StartAndExpand" Grid.Row="6" Grid.Column="0"/>
+				<Image x:Name="AutoSettleFromAdvance" HorizontalOptions="StartAndExpand" WidthRequest="25" HeightRequest="25" Grid.Row="6" Grid.Column="1"/>
+				<Label Text="Is this system generated" HorizontalOptions="StartAndExpand" Grid.Row="7" Grid.Column="0"/>
+				<Image x:Name="IsThisSystemGenerated" HorizontalOptions="StartAndExpand" WidthRequest="25" HeightRequest="25" Grid.Row="7" Grid.Column="1"/>
+				<Label Text="Comment" Grid.Row="8" HorizontalOptions="StartAndExpand" Grid.Column="0"/>
+				<Label x:Name="Comment" Grid.Row="8" HorizontalOptions="StartAndExpand" Grid.Column="1"/>
+			</Grid>
+		</ScrollView>
+	</StackLayout>
+</ui:BaseContentPage>

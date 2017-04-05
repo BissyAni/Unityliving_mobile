@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ui:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:ui="clr-namespace:Unity.Living.App.Portable;assembly=Unity.Living.App.Portable"
+                    x:Class="Unity.Living.App.Portable.Views.Account.AdvanceAccountStatement">
+
+  <Grid BackgroundColor="#e0e0e0" Padding="10">
+    <Frame HasShadow="true" OutlineColor = "Color.Gray" BackgroundColor="White" Padding="0">
+      <Grid Padding="10" x:Name="GridVisibility" BackgroundColor="White">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="40"/>
+          <RowDefinition Height="3"/>
+          <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0" HorizontalOptions="FillAndExpand">
+          <Label WidthRequest="75" Text="Date" Font="Bold, Medium" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap" FontSize="14"/>         
+          <Label WidthRequest="60" Text="Doc No" Font="Bold, Medium" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap" FontSize="14"/>         
+          <Label WidthRequest="60" Text="Debit" Font="Bold, Medium" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap" FontSize="14"/>         
+          <Label WidthRequest="60" Text="Credit" Font="Bold, Medium" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap" FontSize="14"/>          
+          <Label WidthRequest="60" Text="Dues Balance" Font="Bold, Medium" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap" FontSize="14"/>          
+        </StackLayout>
+        <Grid Grid.Row="1" BackgroundColor="#e0e0e0"/>
+            <ListView Grid.Row="2" x:Name="AccountStatementView" VerticalOptions="FillAndExpand">
+              <ListView.ItemTemplate>
+                <DataTemplate>
+                  <ViewCell>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="5">
+                      <Label Text="{Binding Date}" WidthRequest="80" VerticalOptions="Center" HorizontalOptions="StartAndExpand"  LineBreakMode="WordWrap"/>
+                      <Label Text="{Binding Doc}" WidthRequest="60" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap"/>
+                      <Label Text="{Binding Debit}" WidthRequest="60" VerticalOptions="Center" HorizontalOptions="StartAndExpand"  LineBreakMode="WordWrap"/>
+                      <Label Text="{Binding Credit}" WidthRequest="60" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap"/>
+                      <Label Text="{Binding AdvanceBalance}" WidthRequest="60" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap"/>
+                    </StackLayout>
+                  </ViewCell>
+                </DataTemplate>
+              </ListView.ItemTemplate>
+            </ListView>
+      </Grid>
+    </Frame>
+  </Grid>
+</ui:BaseContentPage>

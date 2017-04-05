@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ui:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ui="clr-namespace:Unity.Living.App.Portable;assembly=Unity.Living.App.Portable"
+             x:Class="Unity.Living.App.Portable.Views.Tenant.UserDetailTenantDetailEdit"          
+             Title="Edit Tenant Details">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Name="Update" Clicked="SaveButtonTenentDetails_Clicked" Order="Primary" Priority="0" Icon="save.png" />
+  </ContentPage.ToolbarItems>
+
+  <Grid BackgroundColor="#e0e0e0" Padding="12">
+    <ScrollView>
+      <StackLayout Orientation="Vertical" x:Name="stackdata"  Padding="10" Spacing="10" BackgroundColor="White">
+        <Grid>
+          <Label Text="Rented" HorizontalOptions="Start" />
+          <Switch IsToggled="{Binding Rented}" HorizontalOptions="End" x:Name="renented" />
+        </Grid>
+        <Label Text="Tenant Name" />
+        <Entry Text="{Binding Name}" x:Name="name" />
+        <Label Text="Tenant Address" />
+        <Entry Text="{Binding Address}" x:Name="address"/>
+        <Label Text="Tenant Phone 1" />
+        <Entry Text="{Binding Phone1}" x:Name="phone1"/>
+        <Label Text="Tenant Phone 2" />
+        <Entry Text="{Binding Phone2}" x:Name="phone2"/>
+        <Label Text="Tenant Mobile" />
+        <Entry Text="{Binding Mobile}" x:Name="mobile"/>
+        <Label Text="Tenant Email" />
+        <Entry Text="{Binding Email}" x:Name="email"/>
+        <Label Text="Period From" />
+        <DatePicker Date="{Binding PeriodFrom}" x:Name="periodFrom"/>
+        <Label Text="Period To" />
+        <DatePicker Date="{Binding PeriodTo}" x:Name="periodTo"/>
+        <Button Grid.Column="0" Text="SAVE" BackgroundColor="#03a9f4" TextColor="White" FontSize="12" HeightRequest="55" Clicked="SaveButtonTenentDetails_Clicked"></Button>
+      </StackLayout>
+    </ScrollView>
+  </Grid>
+</ui:BaseContentPage>

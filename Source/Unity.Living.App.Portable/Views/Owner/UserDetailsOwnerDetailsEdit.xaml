@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ui:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:ui="clr-namespace:Unity.Living.App.Portable;assembly=Unity.Living.App.Portable"
+             x:Class="Unity.Living.App.Portable.Views.Owner.UserDetailsOwnerDetailsEdit"
+             Title="Edit Owner">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Name="Update" Order="Primary" Priority="0" Icon="save.png" />
+  </ContentPage.ToolbarItems>
+  <ScrollView>
+    <StackLayout Orientation="Vertical" Padding="3" Spacing="10">
+        <Label Text="Owner Name" />
+        <Entry Text="{Binding owner_name}"  />
+        <Label Text="Owner Phone1"/>
+        <Entry Text="{Binding owner_phone1}" />
+        <Label Text="Owner Email1" />
+        <Entry Text="{Binding owner_email}" />
+        <Label Text="Owner Phone2" />
+        <Entry Text="{Binding owner_phone2}" />
+        <Label Text="Owner Email2" />
+        <Entry Text="{Binding owner_email2}" />
+        <Label Text="Owner Mobile" />
+        <Entry Text="{Binding owner_mobile}" />
+        <Label Text="Owner Address" />
+        <Editor HeightRequest ="100" Text="{Binding owner_address}"  x:Name="noteArea">
+        </Editor>
+        <Label Text="Period From" />
+        <DatePicker x:Name="PeriodFromDatePicker" Date="{Binding owner_start_date}" HorizontalOptions="Fill" />
+        <Label Text="Period To" />
+        <DatePicker x:Name="PeriodToDatePicker" Date="{Binding owner_end_date}" HorizontalOptions="Fill" />      
+    </StackLayout>
+  </ScrollView>
+</ui:BaseContentPage>

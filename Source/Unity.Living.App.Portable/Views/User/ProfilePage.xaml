@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ui="clr-namespace:Unity.Living.App.Portable;assembly=Unity.Living.App.Portable"
+             x:Class="Unity.Living.App.Portable.Views.User.ProfilePage" Title="Profile">
+  
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Name="menus" Clicked="ChangePassword_Clicked" Order="Secondary" Priority="0" Text="Change Password" />  
+  </ContentPage.ToolbarItems>
+
+  <StackLayout Padding="10" BackgroundColor="#e0e0e0">
+    <Frame HasShadow="True" OutlineColor = "Color.Black" BackgroundColor="White" Padding="0">
+      <StackLayout Padding="10" BackgroundColor="White">
+        <Grid Padding="10">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="6*" />
+          </Grid.ColumnDefinitions>
+          <Label Text="Name  :" Grid.Row="0" Grid.Column="0" Font="Bold, Medium"></Label>
+          <Label x:Name="name"  Grid.Row="0" Grid.Column="1" Font="Bold, Medium"/>
+          <Label Text="User Name  :" Grid.Row="1" Grid.Column="0" Font="Bold, Medium"></Label>
+          <Label x:Name="userName" Grid.Row="1" Grid.Column="1" Font="Bold, Medium"/>
+          <Label Text="Email  :" Grid.Row="2" Grid.Column="0" Font="Bold, Medium"></Label>
+          <Label x:Name="email" Grid.Row="2" Grid.Column="1" Font="Bold, Medium"/>
+        </Grid>
+      </StackLayout>
+    </Frame>
+  </StackLayout>
+</ui:BaseContentPage>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ui:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ui="clr-namespace:Unity.Living.App.Portable;assembly=Unity.Living.App.Portable"
+             x:Class="Unity.Living.App.Portable.Views.User.UserDetailsHouseEdit"
+             Title="Edit House">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Name="Update"  Clicked="SaveButtonHouseDetails_Clicked" Order="Primary" Priority="0" Icon="save.png" />
+  </ContentPage.ToolbarItems>
+
+  <Grid BackgroundColor="#e0e0e0" Padding="12">    
+    <ScrollView>
+      <StackLayout Orientation="Vertical" Padding="10" Spacing="10" HorizontalOptions="FillAndExpand" BackgroundColor="White">
+        <Grid >
+          <Label Text="Notify Tenant" HorizontalOptions="Start" />
+          <Switch IsToggled="{Binding IsNotifyTenant}"  HorizontalOptions="End" x:Name="notifyTenent"/>
+        </Grid>
+        <Label Text="Number of Adults" />
+        <Entry Text="{Binding NumberofAdults}" Keyboard="Numeric" TextChanged="NumberofAdults_TextChanged"  x:Name="adultNo" />
+        <Label Text="Number of Children" />
+        <Entry Text="{Binding NumberofChildren}" Keyboard="Numeric" TextChanged="NumberofChildren_TextChanged"  x:Name="childrenNo" />
+        <Label Text="Intercom Number" />
+        <Entry Text="{Binding IntercomNumber}" Keyboard="Numeric" TextChanged="IntercomNumber_TextChanged"  x:Name="intercomNumber" />
+        <Label Text="Local Body House Number" />
+        <Entry Text="{Binding LocalBodyHouseNumber}"  x:Name="localBodyHouseNo" />
+        <Label Text="Electricity Consumer Number" />
+        <Entry Text="{Binding ElectricityConsumerNumber}"  x:Name="electricityConsumerNo" />
+        <Label Text="Sale Deed Number" />
+        <Entry Text="{Binding SaleDeedNumber}" x:Name="saleDeedNo"/>
+        <Label Text="Vehicle Number" />
+        <Entry Text="{Binding VehicleNumber}" x:Name="vehicleNo" />
+        <Label Text="Vehicle Make" />
+        <Entry Text="{Binding VehicleMake}" x:Name="vehicleMake" />
+        <Label Text="Comments" />
+        <Editor Text="{Binding Comments}" HeightRequest = "100" x:Name="comments" />
+        <Label Text="Resident" />
+        <Picker x:Name="Status"  Title="Select Status" HorizontalOptions="FillAndExpand" >
+          <Picker.Items>
+            <x:String>Owner</x:String>
+            <x:String>Tenant</x:String>
+            <x:String>Multi Tenant</x:String>
+            <x:String>Vacant</x:String>
+          </Picker.Items>
+        </Picker>      
+        <Button Grid.Column="0" Text="SAVE" BackgroundColor="#03a9f4" TextColor="White" FontSize="12" HeightRequest="55" Clicked="SaveButtonHouseDetails_Clicked"></Button>
+      </StackLayout>
+    </ScrollView>    
+    
+  </Grid>
+</ui:BaseContentPage>

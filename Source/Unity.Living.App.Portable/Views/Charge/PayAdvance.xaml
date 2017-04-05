@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ui:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:ui="clr-namespace:Unity.Living.App.Portable;assembly=Unity.Living.App.Portable"
+                    xmlns:controls="clr-namespace:Unity.Living.App.Portable.Controls;assembly=Unity.Living.App.Portable"
+                    x:Class="Unity.Living.App.Portable.Views.Charge.PayAdvance">
+  
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Name="Update" Clicked="Save_Clicked" Order="Primary" Priority="0" Icon="proceed.png" />
+	</ContentPage.ToolbarItems>
+
+  <Grid BackgroundColor="#e0e0e0">
+	<ScrollView Padding="10">
+    <Frame OutlineColor="Black" HasShadow="True" Padding="2">
+      <StackLayout Orientation="Vertical" Padding="10">
+        <StackLayout Orientation="Vertical" >
+          <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Center">
+            <Label Text="Owner:  " TextColor="Black" FontAttributes="Bold" FontSize="14"></Label>
+            <Label x:Name="owner"></Label>
+          </StackLayout>
+          <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Center">
+            <Label Text="Tenant: " TextColor="Black" FontAttributes="Bold" FontSize="14"></Label>
+            <Label x:Name="tenent"></Label>
+          </StackLayout>
+        </StackLayout>
+        <StackLayout Padding="0,20,0,0" Orientation="Vertical" HorizontalOptions="FillAndExpand" Spacing="5" >
+          <Label Text="Paying Amount" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap" />
+          <Entry x:Name="PayingAmount" Keyboard="Numeric" ></Entry>
+        </StackLayout>
+        <Label Text="Comments" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap" />
+        <controls:RoundedEditor HeightRequest="125" x:Name="Comment" BorderRadius="4" BorderWidth="1" BorderColor="#03a9f4"/>
+        <Grid Padding="0,10,0,20">
+          <Button Text="Pay Advance" x:Name="payAdvanceButton"  Clicked="Save_Clicked" BackgroundColor="#03a9f4" TextColor="White" HorizontalOptions="Fill" FontSize="12" HeightRequest="55"></Button>
+        </Grid>
+        <StackLayout Orientation="Vertical">
+          <Label Text="Note:" FontAttributes="Bold"></Label>
+          <Label Text="We recommend Net Banking for amount more than Rs.2500 for reduced convenience fee" ></Label>
+        </StackLayout>
+        <StackLayout>
+        </StackLayout>
+      </StackLayout>
+    </Frame>
+	</ScrollView>
+ </Grid>
+</ui:BaseContentPage>

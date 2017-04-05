@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ui:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:ui="clr-namespace:Unity.Living.App.Portable;assembly=Unity.Living.App.Portable"
+                    xmlns:controls="clr-namespace:Unity.Living.App.Portable.Controls;assembly=Unity.Living.App.Portable"
+                    x:Class="Unity.Living.App.Portable.Views.ServiceRequest.ServiceRequestSearch" 
+                    Title="Search Service Requests"> 
+
+  <ContentPage.ToolbarItems>  
+    <ToolbarItem x:Name="CloseButton" Clicked="CloseButton_Clicked" Order="Primary" Priority="0" Icon="close.png" />   
+  </ContentPage.ToolbarItems>
+  
+  <StackLayout x:Name="SearchLayout" Padding="10">
+    <StackLayout Orientation="Vertical">
+      <Label Text="Enter Subject" />
+      <controls:RoundedEditor HeightRequest="100" x:Name="subjectOrDescription" BorderRadius="4" BorderWidth="1" BorderColor="#03a9f4"/>
+      <Label Text="Select Status" />
+      <Picker x:Name="Status" Title="Status" HorizontalOptions="FillAndExpand" >
+        <Picker.Items>
+          <x:String>All</x:String>
+          <x:String>Open</x:String>
+          <x:String>Closed</x:String>
+        </Picker.Items>
+      </Picker>
+    </StackLayout>
+    <Button Text="Search" Clicked="ButtonServiceRequestView_Clicked" BackgroundColor="#03a9f4" TextColor="White" HorizontalOptions="Fill"  FontSize="10" HeightRequest="55" />
+  </StackLayout>
+</ui:BaseContentPage>

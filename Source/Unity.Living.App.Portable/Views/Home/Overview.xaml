@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ui:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:ui="clr-namespace:Unity.Living.App.Portable;assembly=Unity.Living.App.Portable"
+              xmlns:controls="clr-namespace:Unity.Living.App.Portable.Controls;assembly=Unity.Living.App.Portable"
+              x:Class="Unity.Living.App.Portable.Views.Home.Overview"
+              Title="UnityLiving">
+    
+  <Grid BackgroundColor="#9e9e9e" RowSpacing="0">
+      <Grid.RowDefinitions>
+        <RowDefinition Height=".6*"/>
+        <RowDefinition Height=".7*"/>
+        <RowDefinition Height="7*"/>
+      </Grid.RowDefinitions>
+
+      <Grid Grid.Row="0" ColumnSpacing="0" BackgroundColor="#039be5">
+        <Grid Padding="12,5,12,5" ColumnSpacing="0">
+          <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="10"/>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+          <Label Grid.Column="0" BackgroundColor="#eceff1"/>
+          <Label Grid.Column="1" x:Name="lblFlatName" Text="{Binding SiteName}" TextColor="Black" FontAttributes="Bold" BackgroundColor="#eceff1" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="15"/>
+        </Grid>
+      </Grid>
+      <Grid Grid.Row="1" ColumnSpacing="0" BackgroundColor="#0288d1" Padding="12,5,12,5">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="2*"/>
+          <ColumnDefinition Width=".8*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Padding="12,5,12,5"  />
+        <Label Grid.Column="0" Text="{Binding LatestServiceRequest}" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="13"/>
+        <controls:RoundedButton Grid.Column="1" x:Name="btnReadMore" Text="Read More" Command="{Binding LateServiceRequestTapped}" TextColor="Black" BorderRadius ="4" BorderWidth = "1" FontSize="10" BackgroundColor="White" HeightRequest="40" HorizontalOptions="End" VerticalOptions="Center" BorderColor="White"/>
+      </Grid>
+    
+      <Grid Grid.Row="2" BackgroundColor="#eeeeee" Padding="10">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="1*"/>
+          <RowDefinition Height="1.1*"/>
+          <RowDefinition Height=".2*"/>
+        </Grid.RowDefinitions>
+        
+        <Frame HasShadow="True" OutlineColor = "Color.Black" BackgroundColor="White" Padding="0">
+          <Grid Grid.Row="0" BackgroundColor="White" Padding="10,2,10,2">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="1.1*"/>
+              <RowDefinition Height="2.2*"/>
+              <RowDefinition Height=".9*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" ColumnSpacing="5" Padding="5">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".5*"/>
+                <ColumnDefinition Width="4*"/>
+              </Grid.ColumnDefinitions>
+              <Image Grid.Column="0" Source="Head1.png" VerticalOptions="Center" HorizontalOptions="Start"/>
+              <Grid Grid.Column="1" BackgroundColor="White" ColumnSpacing="2">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="40"/>
+                  <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <controls:BindablePicker Grid.Column="0" ItemsSource="{Binding PickerItems}" SelectedItem="{Binding SelectedItem}" TextColor="Black" Title="Select House" />
+                <Label Grid.Column="1" Text="{Binding UserName}" FontSize="15" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center"/>
+              </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1" Padding="5" ColumnSpacing="2">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+              </Grid.ColumnDefinitions>
+              <StackLayout Grid.Column="1" Orientation="Vertical" BackgroundColor="#eeeeee" HorizontalOptions="Center" VerticalOptions="Center">
+                <Grid Padding="0,5,0,0">
+                  <Image Source="rupee.png"/>
+                </Grid>
+                <StackLayout Orientation="Horizontal" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                  <Label Text="Rs " FontSize="11" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                  <Label Text="{Binding TotalDues}" FontSize="13" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
+                </StackLayout>
+                <Grid Padding="0,0,0,5">
+                  <Label Text="Total Dues" FontSize="13" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </Grid>
+              </StackLayout>
+              <StackLayout Grid.Column="2" Orientation="Vertical" BackgroundColor="#eeeeee" HorizontalOptions="Center" VerticalOptions="Center">
+                <Grid Padding="0,5,0,0">
+                  <Image Source="rupee.png"/>
+                </Grid>
+                <StackLayout Orientation="Horizontal" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                  <Label Text="Rs " FontSize="11" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                  <Label Text="{Binding OverDue}" FontSize="13" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <Grid Padding="0,0,0,5">
+                  <Label Text="Total OverDues" TextColor="Black" FontSize="13" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </Grid>
+              </StackLayout>
+              <StackLayout Grid.Column="0" Orientation="Vertical" BackgroundColor="#eeeeee" HorizontalOptions="Center" VerticalOptions="Center">
+                  <Grid Padding="0,5,0,0">
+                    <Image Source="rupee.png"/>
+                  </Grid>
+                  <StackLayout Orientation="Horizontal" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="Rs " FontSize="11" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Text="{Binding Advance}" FontSize="13" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                  </StackLayout>
+                <Grid Padding="0,0,0,5">
+                  <Label Text="Advance" FontSize="13" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </Grid>
+             </StackLayout>
+            </Grid>
+
+            <Grid Grid.Row="2" BackgroundColor="White" Padding="0,0,0,5">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1.3*"/>
+              </Grid.ColumnDefinitions>
+              <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding EditDetailsTapped}"/>
+              </StackLayout.GestureRecognizers>
+              <Label Grid.Column="0" Text="Manage House Details" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="13"/>
+              <controls:RoundedButton Grid.Column="1" x:Name="btnPayNow" Text="PAY NOW" Command="{Binding ViewDetailsTapped}" TextColor="Black" HeightRequest="40" BorderRadius="4" BorderWidth = "1" BorderColor="#03a9f4" BackgroundColor="White" HorizontalOptions="End" VerticalOptions="Center" FontSize="11"/>
+            </Grid>
+          </Grid>
+        </Frame>
+        
+        <Grid Row="1" BackgroundColor="White" RowSpacing="1" Padding="10">
+          <Grid.RowDefinitions>
+            <RowDefinition Height=".6*"/>
+            <RowDefinition Height="1.9*"/>
+            <RowDefinition Height="1.9*"/>
+          </Grid.RowDefinitions>
+          <Label Grid.Row="0" Text="Quick Actions" FontSize="16" TextColor="Black" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+          <Grid Grid.Row="1" ColumnSpacing="1" BackgroundColor="White" >
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="1*"/>
+              <ColumnDefinition Width="1*"/>
+              <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Frame Grid.Column="0" OutlineColor="Gray" Padding="0">
+              <StackLayout Orientation="Vertical" Spacing="2" VerticalOptions="Center" HorizontalOptions="Center">
+                <StackLayout.GestureRecognizers>
+                  <TapGestureRecognizer Command="{Binding ServiceRequestTapped}"/>
+                </StackLayout.GestureRecognizers>
+                <Image Source="servicerequest.png"/>
+                <Label Text="Service Request" FontSize="13" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+              </StackLayout>
+            </Frame>
+
+            <Frame Grid.Column="1" OutlineColor="Gray" Padding="0">
+              <StackLayout Orientation="Vertical" Spacing="2" VerticalOptions="Center" HorizontalOptions="Center">
+                <StackLayout.GestureRecognizers>
+                  <TapGestureRecognizer Command="{Binding DueStatementTapped}"/>
+                </StackLayout.GestureRecognizers>
+                <Image Source="duesstatement.png"/>
+                <Label Text="Dues Statement" FontSize="13" TextColor="Black"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+              </StackLayout>
+            </Frame>
+
+            <Frame Grid.Column="2" OutlineColor="Gray" Padding="0">
+              <StackLayout Orientation="Vertical" Spacing="2" VerticalOptions="Center" HorizontalOptions="Center">
+                <StackLayout.GestureRecognizers>
+                  <TapGestureRecognizer Command="{Binding HavePaidTapped}"/>
+                </StackLayout.GestureRecognizers>
+                <Image Source="paid.png"/>
+                <Label Text="I have Paid" FontSize="13" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+              </StackLayout>
+            </Frame>
+          </Grid>
+
+          <Grid Grid.Row="2" ColumnSpacing="2" BackgroundColor="White" >
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="1*"/>
+              <ColumnDefinition Width="1*"/>
+              <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Frame Grid.Column="0" OutlineColor="Gray" Padding="0">
+              <StackLayout Orientation="Vertical" Spacing="2" VerticalOptions="Center" HorizontalOptions="Center">
+                <StackLayout.GestureRecognizers>
+                  <TapGestureRecognizer Command="{Binding ReceiptsTapped}"/>
+                </StackLayout.GestureRecognizers>
+                <Image Source="duesrecipt.png"/>
+                <Label Text="Dues Receipts" FontSize="13" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+              </StackLayout>
+            </Frame>
+
+            <Frame Grid.Column="1" OutlineColor="Gray" Padding="0">
+              <StackLayout Orientation="Vertical" Spacing="2" VerticalOptions="Center" HorizontalOptions="Center">
+                <StackLayout.GestureRecognizers>
+                  <TapGestureRecognizer Command="{Binding DueAccountStatementTapped}"/>
+                </StackLayout.GestureRecognizers>
+                <Image Source="advancestatement.png"/>
+                <Label Text="Due Account Statement" FontSize="13" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+              </StackLayout>
+            </Frame>
+
+            <Frame Grid.Column="2" OutlineColor="Gray" Padding="0">
+              <StackLayout Orientation="Vertical" Spacing="2" VerticalOptions="Center" HorizontalOptions="Center">
+                <StackLayout.GestureRecognizers>
+                  <TapGestureRecognizer Command="{Binding AdvanceAccountStatementTapped}"/>
+                </StackLayout.GestureRecognizers>
+                <Image Source="duesaccountstatement.png"/>
+                <Label Text="Advance Account Statement" FontSize="13" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+              </StackLayout>
+            </Frame>
+          </Grid>
+
+        </Grid>
+      </Grid>
+    </Grid>
+   
+</ui:BaseContentPage>

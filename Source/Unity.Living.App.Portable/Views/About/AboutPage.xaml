@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Unity.Living.App.Portable.Helpers;assembly=Unity.Living.App.Portable"
+            x:Class="Unity.Living.App.Portable.Views.About.AboutPage"
+             Title="About Us">
+	<AbsoluteLayout Padding="20" >
+		<Label Text="Cloud Software for Apartment Society Management and Private Social Networking"
+			AbsoluteLayout.LayoutBounds="0,200"  HorizontalTextAlignment="Center"/>
+		<Label x:Name="VersionValue"
+			AbsoluteLayout.LayoutBounds=".5,1,.5,.1" AbsoluteLayout.LayoutFlags="All" HorizontalTextAlignment="Center"/>
+	</AbsoluteLayout>
+</ContentPage>

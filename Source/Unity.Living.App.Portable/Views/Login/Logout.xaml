@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Unity.Living.App.Portable.Views.Login.Logout" Title="LogOut">
+ <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+    <Label Text="Are you sure, you want to Logout?" Font="Bold,Medium" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" />
+    <Button Text="Ok"  TextColor="White"  BackgroundColor="#0389BB" BorderRadius="6" Clicked="logoutButton_Clicked"  x:Name="logoutButton"/>
+  </StackLayout>
+</ContentPage>

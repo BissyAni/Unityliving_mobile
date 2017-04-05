@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:controls="clr-namespace:Unity.Living.App.Portable.Controls;assembly=Unity.Living.App.Portable"
+            x:Class="Unity.Living.App.Portable.Views.ServiceRequest.ServiceRequestDetails">
+  
+	<TabbedPage.Children>
+		<ContentPage Title="Details">
+      <StackLayout Padding="10" BackgroundColor="#e0e0e0">
+        <Frame HasShadow="True" OutlineColor = "Color.Gray" BackgroundColor="White" Padding="0">
+          <StackLayout Padding="10" Spacing="20" BackgroundColor="White">
+            <Grid RowSpacing="10">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="20" />
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="5*" />
+              </Grid.ColumnDefinitions>
+              <Label Text="Created By" Grid.Row="0" Grid.Column="0"></Label>
+              <Label x:Name="lblCreatedBy" Grid.Row="0" Grid.Column="1"></Label>
+              <Label Text="Created Date" Grid.Row="1" Grid.Column="0"></Label>
+              <Label x:Name="lblCreatedDate" Grid.Row="1" Grid.Column="1"></Label>
+              <Label Text="Last Update" Grid.Row="2" Grid.Column="0"></Label>
+              <Label x:Name="lblLastUpdate" Grid.Row="2" Grid.Column="1"></Label>
+              <Label Text="House" Grid.Row="3" Grid.Column="0"></Label>
+              <Label x:Name="lblHouse" Grid.Row="3" Grid.Column="1"></Label>
+              <Label Text="Status" Grid.Row="4" Grid.Column="0"></Label>
+              <Label x:Name="lblStatus" Grid.Row="4" Grid.Column="1"></Label>
+              <Label Text="Closed Date" Grid.Row="5" Grid.Column="0"></Label>
+              <Label x:Name="lblCloseDate" Grid.Row="5" Grid.Column="1"></Label>
+              <Label Text="Subject" Grid.Row="6" Grid.Column="0"></Label>
+              <Label x:Name="lblSubject" Grid.Row="6" Grid.Column="1"></Label>
+              <Label Text="Preferred Date" Grid.Row="7" Grid.Column="0"></Label>
+              <Label x:Name="lblPrfDate" Grid.Row="7" Grid.Column="1"></Label>
+              <Label Text="Preferred Time" Grid.Row="8" Grid.Column="0"></Label>
+              <Label x:Name="lblPrfTime" Grid.Row="8" Grid.Column="1"></Label>
+            </Grid>
+          </StackLayout>
+        </Frame>
+      </StackLayout>
+		</ContentPage>
+    
+		<ContentPage Title="Comments">
+      <StackLayout Padding="10" BackgroundColor="#e0e0e0">        
+          <StackLayout BackgroundColor="White">
+            <Frame HasShadow="True" OutlineColor = "Color.Gray" BackgroundColor="White" HeightRequest="1000" Padding="0">
+              <ListView x:Name="ServiceRequestView" HasUnevenRows="True" Margin="10">
+                <ListView.ItemTemplate>
+                  <DataTemplate>
+                    <ViewCell>
+                      <Grid  Padding="10,10,0,10">
+                        <Grid.RowDefinitions>
+                          <RowDefinition Height="Auto"/>
+                          <RowDefinition Height="Auto"/>
+                          <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                          <ColumnDefinition Width="5*" ></ColumnDefinition>
+                          <ColumnDefinition Width="5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Grid.Row="1"  Text="{Binding CreatedBy}"  VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="#666666" FontSize="16" HorizontalOptions="StartAndExpand" LineBreakMode="TailTruncation" />
+                        <Label x:Name="dateLabel" Grid.Column="0" Grid.Row="2"  Text="{Binding CreatedDate}"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" LineBreakMode="TailTruncation" />
+                        <Label  Grid.Column="1" Grid.Row="0" Grid.RowSpan="3"   Text="{Binding Title}"   VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
+                      </Grid>
+                    </ViewCell>
+                  </DataTemplate>
+                </ListView.ItemTemplate>
+              </ListView>
+            </Frame>
+            <Frame HasShadow="true" OutlineColor = "Color.Gray" BackgroundColor="White" Padding="10">
+              <Grid Padding="10,0,10,0" >
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="9*" ></ColumnDefinition>
+                  <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="Comments" Text="Comment or Message" Grid.Column="0" Grid.Row="0" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                <controls:RoundedEditor x:Name="AddComments" Grid.Column="0" Grid.Row="1" HeightRequest="100" HorizontalOptions="FillAndExpand" BorderRadius="4" BorderWidth="1" BorderColor="#03a9f4"/>
+                <Image x:Name="CommentButton" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Source="Send.png" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
+              </Grid>
+            </Frame>
+          </StackLayout>        
+      </StackLayout>
+		</ContentPage>
+	</TabbedPage.Children>
+</TabbedPage>

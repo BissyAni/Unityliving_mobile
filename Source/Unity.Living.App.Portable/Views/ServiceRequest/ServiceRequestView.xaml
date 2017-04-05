@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ui:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="Unity.Living.App.Portable.Views.ServiceRequest.ServiceRequestView"
+			              xmlns:ui="clr-namespace:Unity.Living.App.Portable;assembly=Unity.Living.App.Portable"
+			              xmlns:local="clr-namespace:Unity.Living.App.Portable.Utils;assembly=Unity.Living.App.Portable"
+                    Title="{Binding Title}" >
+  
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<local:DateTimeConverter x:Key="dateTimeConverter" />
+		</ResourceDictionary>
+	</ContentPage.Resources>
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Command="{Binding CreateRequest}"  Order="Primary" Priority="0" Icon="add.png" />
+		<ToolbarItem  Command="{Binding SearchRequest}" Order="Primary" Priority="0" Icon="Filter1.png" />
+	</ContentPage.ToolbarItems>
+  
+	<StackLayout Padding="10" BackgroundColor="#e0e0e0">
+		<Frame HasShadow="True" OutlineColor = "Color.Gray" BackgroundColor="White" HeightRequest="1000" Padding="0">
+			<ListView ItemsSource="{Binding ServiceRequests}"
+					      RefreshCommand="{Binding RefreshServiceRequests}"
+					      IsRefreshing="{Binding IsBusy, Mode=TwoWay}"
+					      ItemSelected="ReadingView_ItemSelected"
+					      IsPullToRefreshEnabled="true"
+				        HasUnevenRows="True" Margin="5">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+              <StackLayout Orientation="Vertical">
+                <Grid BackgroundColor="#EEEEEE" HeightRequest="3"/>
+							  <Grid Padding="5,0,5,5">
+								  <Grid.RowDefinitions>
+									  <RowDefinition Height="Auto"/>
+									  <RowDefinition Height="Auto"/>
+									  <RowDefinition Height="Auto"/>
+								  </Grid.RowDefinitions>
+								  <Grid.ColumnDefinitions>
+									  <ColumnDefinition Width="8*"></ColumnDefinition>
+									  <ColumnDefinition Width="2*"></ColumnDefinition>
+								  </Grid.ColumnDefinitions>
+								  <Label Grid.Column="0" Grid.Row="1" Text="{Binding Subject}" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="#666666" FontSize="16" HorizontalOptions="StartAndExpand" LineBreakMode="TailTruncation" />
+								  <Label Grid.Column="0" Grid.Row="2" Text="{Binding LastUpdate,Converter={StaticResource dateTimeConverter}}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" LineBreakMode="TailTruncation" />
+								  <Label Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Text="{Binding Status}" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Margin="0,0,10,0" />
+							  </Grid>
+              </StackLayout>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</Frame>
+	</StackLayout>
+</ui:BaseContentPage>

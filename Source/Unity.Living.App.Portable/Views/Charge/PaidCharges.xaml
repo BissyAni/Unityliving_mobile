@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ui:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:ui="clr-namespace:Unity.Living.App.Portable;assembly=Unity.Living.App.Portable"
+             x:Class="Unity.Living.App.Portable.Views.Charge.PaidCharges" Title="Paid Charges">
+  
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Name="Update" Order="Primary" Priority="0" Icon="save.png" Clicked="Update_Clicked"/>
+	</ContentPage.ToolbarItems>
+  
+	<StackLayout Padding="15">
+		<Label Text="Date"></Label>
+		<DatePicker x:Name="DateValue">
+			<DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+		</DatePicker>
+		<Label Text="Mode of Payment"></Label>
+		<Picker Title="---" x:Name="ModeOfPayment">
+			<Picker.Items>
+				<x:String>EFT</x:String>
+				<x:String>CHEQUE</x:String>
+				<x:String>CASH</x:String>
+			</Picker.Items>
+		</Picker>
+		<StackLayout x:Name="BankBranch">
+			<Label Text="Bank Branch"></Label>
+			<Entry x:Name="BankBranchValue"></Entry>
+		</StackLayout>
+		<StackLayout x:Name="BankName">
+			<Label Text="Bank Name"></Label>
+			<Entry x:Name="BankNameValue"></Entry>
+		</StackLayout>
+		<StackLayout x:Name="Reference">
+			<Label Text="Reference"></Label>
+			<Entry  x:Name="ReferenceValue"></Entry>
+		</StackLayout>
+		<StackLayout x:Name="ChequeNo">
+			<Label Text="Cheque No"></Label>
+			<Entry x:Name="chequeNoValue"></Entry>
+		</StackLayout>
+		<StackLayout>
+			<Label Text="Description" x:Name="description"></Label>
+			<Entry></Entry>
+		</StackLayout>
+    <Button Text="save" Clicked="Update_Clicked" BackgroundColor="#03a9f4" TextColor="White" HorizontalOptions="Fill" FontSize="12" HeightRequest="55"></Button>
+	</StackLayout>
+  
+</ui:BaseContentPage>

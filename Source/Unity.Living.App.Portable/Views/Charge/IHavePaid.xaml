@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ui:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="Unity.Living.App.Portable.Views.Charge.IHavePaid"
+			              xmlns:ui="clr-namespace:Unity.Living.App.Portable;assembly=Unity.Living.App.Portable"
+			              Title="{Binding HouseName}">
+  
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Command="{Binding OnAccountStatementClicked}" Order="Secondary" Priority="0" Text="Account Statement" />
+		<ToolbarItem Command="{Binding OnDueAccountStatementClicked}" Order="Secondary" Priority="0" Text="Dues Account Statement" />
+		<ToolbarItem Command="{Binding OnAdvanceAccountStatementClicked}" Order="Secondary" Priority="0" Text="Advance Account Statement" />
+	</ContentPage.ToolbarItems>
+	 		
+			<ScrollView>
+        <Grid BackgroundColor="#e0e0e0">
+				<StackLayout Orientation="Vertical" Padding="10" Spacing="2">
+          
+					<Grid x:Name="GroupChargesGrid" RowSpacing="0">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+						<Frame HasShadow="true" OutlineColor = "Color.Gray" Grid.Row="0" Padding="0" BackgroundColor="White">
+							<Grid Padding="10,0,20,0" HeightRequest="55">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="6*"/>
+									<ColumnDefinition Width="3*"/>
+									<ColumnDefinition Width="1*"/>
+								</Grid.ColumnDefinitions>
+								<Label Text="Group Charges" Grid.Column="0" FontSize="22" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="#333333"></Label>
+								<Label Text="Select All" Grid.Column="1" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand"/>								
+								<Image Source="Checked.png" Grid.Column="2" IsVisible="{Binding GroupAllChecked}" VerticalOptions="Center" HeightRequest="26" WidthRequest="26" HorizontalOptions="EndAndExpand" >
+									<Image.GestureRecognizers>
+										<TapGestureRecognizer Command="{Binding ToggleGroupCharge}"/>
+									</Image.GestureRecognizers>
+								</Image>
+								<Image Source="Unchecked.png" Grid.Column="2" IsVisible="{Binding GroupAllUnchecked}" VerticalOptions="Center"  HeightRequest="26" WidthRequest="26"  HorizontalOptions="EndAndExpand" >
+									<Image.GestureRecognizers>
+										<TapGestureRecognizer Command="{Binding ToggleGroupCharge}"/>
+									</Image.GestureRecognizers>
+								</Image>
+							</Grid>
+						</Frame>
+						<Frame HasShadow="true" OutlineColor = "Color.Gray" Grid.Row="1" BackgroundColor="White" Padding="0" >
+							<ListView x:Name="GroupCharges" HasUnevenRows="True" RowHeight="-1" ItemsSource="{Binding GetGroupChargeList}"  ItemSelected="GroupCharge_OnItemSelected">
+								<ListView.ItemTemplate>
+									<DataTemplate>
+										<ViewCell>
+											<Grid Padding="15,10,20,10">
+												<Grid.RowDefinitions>
+													<RowDefinition Height="Auto"/>
+													<RowDefinition Height="Auto"/>
+												</Grid.RowDefinitions>
+												<Grid.ColumnDefinitions>
+													<ColumnDefinition Width="8*" ></ColumnDefinition>
+													<ColumnDefinition Width="2*"></ColumnDefinition>
+												</Grid.ColumnDefinitions>
+												<Label Grid.Column="0" Grid.Row="0" Text="{Binding Item.Description}"  VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="#666666" FontSize="16" HorizontalOptions="StartAndExpand" LineBreakMode="TailTruncation" />
+												<Label Grid.Column="0" Grid.Row="1" Text="{Binding Item.Balance}"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" LineBreakMode="TailTruncation" />
+												<Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Source="Checked.png"  HeightRequest="26" WidthRequest="26"  IsVisible="{Binding IsChecked}" VerticalOptions="Center" HorizontalOptions="EndAndExpand" />
+												<Image  Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Source="Unchecked.png"  HeightRequest="26" WidthRequest="26"  IsVisible="{Binding UnChecked}" VerticalOptions="Center" HorizontalOptions="EndAndExpand" />
+											</Grid>
+										</ViewCell>
+									</DataTemplate>
+								</ListView.ItemTemplate>
+							</ListView>
+						</Frame>
+					</Grid>
+          
+					<Grid x:Name="ChargesGrid" RowSpacing="0">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+						<Frame HasShadow="true" OutlineColor = "Color.Gray" Grid.Row="0" Padding="0" BackgroundColor="White">
+							<Grid Padding="10,0,20,0" HeightRequest="55">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="6*"/>
+									<ColumnDefinition Width="3*"/>
+									<ColumnDefinition Width="1*"/>
+								</Grid.ColumnDefinitions>
+								<Label Text="Charges" Grid.Column="0" FontSize="22" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="#333333"></Label>
+								<Label Text="Select All" Grid.Column="1" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand"/>
+								<Image Source="Checked.png" Grid.Column="2" VerticalOptions="Center" IsVisible="{Binding ChargesAllChecked}" HeightRequest="26" WidthRequest="26" HorizontalOptions="EndAndExpand" >
+									<Image.GestureRecognizers>
+										<TapGestureRecognizer Command="{Binding ToggleCharge}"/>
+									</Image.GestureRecognizers>
+								</Image>
+								<Image Source="Unchecked.png" Grid.Column="2"  VerticalOptions="Center" IsVisible="{Binding ChargesAllUnChecked}"  HeightRequest="26" WidthRequest="26"  HorizontalOptions="EndAndExpand" >
+									<Image.GestureRecognizers>
+										<TapGestureRecognizer Command="{Binding ToggleCharge}"/>
+									</Image.GestureRecognizers>
+								</Image>
+							</Grid>
+						</Frame>
+						<Frame HasShadow="true" OutlineColor = "Color.Gray" Grid.Row="1"  BackgroundColor="White" Padding="0" >
+							<ListView x:Name="ReadingView" HasUnevenRows="True" Grid.Row="1"  RowHeight="-1" ItemsSource="{Binding GetChargeList}"  ItemSelected="Charge_OnItemSelected">
+								<ListView.ItemTemplate>
+									<DataTemplate>
+										<ViewCell>
+											<Grid Padding="15,10,20,10">
+												<Grid.RowDefinitions>
+													<RowDefinition Height="Auto"/>
+													<RowDefinition Height="Auto"/>
+												</Grid.RowDefinitions>
+												<Grid.ColumnDefinitions>
+													<ColumnDefinition Width="8*" ></ColumnDefinition>
+													<ColumnDefinition Width="2*"></ColumnDefinition>
+												</Grid.ColumnDefinitions>
+												<Label Grid.Column="0" Grid.Row="0"  Text="{Binding Item.Description}" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="#666666" FontSize="16" HorizontalOptions="StartAndExpand" LineBreakMode="TailTruncation" />
+												<Label Grid.Column="0" Grid.Row="1"  Text="{Binding Item.Balance}"  VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" LineBreakMode="TailTruncation" />
+												<Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Source="Checked.png"  HeightRequest="26" WidthRequest="26"  IsVisible="{Binding IsChecked}" VerticalOptions="Center" HorizontalOptions="EndAndExpand" />
+												<Image  Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Source="Unchecked.png"  HeightRequest="26" WidthRequest="26"  IsVisible="{Binding UnChecked}" VerticalOptions="Center" HorizontalOptions="EndAndExpand" />
+                      </Grid>
+										</ViewCell>
+									</DataTemplate>
+								</ListView.ItemTemplate>
+							</ListView>
+						</Frame>
+					</Grid>
+          
+					<Frame HasShadow="true" OutlineColor = "Color.Gray" BackgroundColor="White" Padding="10,5,10,10">
+            <StackLayout Orientation="Vertical">
+						  <StackLayout Orientation="Horizontal" Spacing="2" VerticalOptions="Center" HorizontalOptions="End" Padding="10">
+							  <Label Text="You have selected : ₹" FontAttributes="Bold" FontSize="18"></Label>
+							  <Label Text="{Binding TotalValue}" FontAttributes="Bold" FontSize="18" ></Label>
+              </StackLayout>
+              <Button Text="I Have Paid" Command="{Binding PaidButton}" BackgroundColor="#03a9f4" TextColor="White" HorizontalOptions="Fill" FontSize="12" HeightRequest="55"></Button>
+            </StackLayout>              
+          </Frame>
+				</StackLayout>
+        </Grid>
+			</ScrollView>
+  
+</ui:BaseContentPage>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Unity.Living.App.Portable.Views.Hyperlink.HyperlinkView">
+	<StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+		<StackLayout  x:Name="webViewStack">
+			<WebView x:Name="webView" HeightRequest="1000" WidthRequest="1000" Navigating="webOnNavigating" Navigated="webOnEndNavigating" />
+		</StackLayout>
+		<StackLayout x:Name="noInternetStack">
+			<Image Source="noInternet.png" HeightRequest="100"/>
+			<Label Text="No Internet Connection" FontAttributes="Bold" HorizontalOptions="Center"/>
+		</StackLayout>
+	</StackLayout>
+</ContentPage>

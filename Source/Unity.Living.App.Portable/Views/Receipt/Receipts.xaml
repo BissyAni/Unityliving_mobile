@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Unity.Living.App.Portable.Views.Receipt.Receipts">
+
+  <Grid BackgroundColor="#e0e0e0" Padding="10">
+    <Frame HasShadow="true" OutlineColor="Color.Gray" Padding="0">
+      <StackLayout Orientation="Vertical" Padding="10" x:Name="StackVisibility" BackgroundColor="White">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" Padding="0,10,0,10">
+          <Label WidthRequest="80" Text="Date" Font="Bold, Medium" YAlign="Center" HorizontalOptions="StartAndExpand"  LineBreakMode="WordWrap" FontSize="14"/>
+          <Label WidthRequest="70" Text="Ref/Description" Font="Bold, Medium" YAlign="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap" FontSize="14"/>
+          <Label WidthRequest="60" Text="Advance Payment" Font="Bold, Medium" YAlign="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap" FontSize="14"/>
+          <Label WidthRequest="55" Text="Payment Type" Font="Bold, Medium" YAlign="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap" FontSize="14"/>
+          <Label WidthRequest="55" Text="Amount Received" Font="Bold, Medium" YAlign="Center" HorizontalOptions="EndAndExpand" LineBreakMode="WordWrap" FontSize="14"/>
+        </StackLayout>
+        <Grid HeightRequest="3" BackgroundColor="#e0e0e0"/>
+        <ScrollView>
+          <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand">
+            <ListView x:Name="AccountStatementView" VerticalOptions="FillAndExpand">
+              <ListView.ItemTemplate>
+                <DataTemplate>
+                  <ViewCell>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="5" Padding="2">
+                        <Label WidthRequest="80" Text="{Binding Date}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap"/>
+                        <Label WidthRequest="80" Text="{Binding Description}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="TailTruncation"/>
+                        <StackLayout WidthRequest="50" VerticalOptions="Center" HorizontalOptions="StartAndExpand">
+                          <Image Source="{Binding Advance}" VerticalOptions="Center" WidthRequest="20" HeightRequest="20" HorizontalOptions="StartAndExpand"  />
+                        </StackLayout>          
+                        <Label WidthRequest="55" Text="{Binding Source}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap"/>           
+                        <Label WidthRequest="55" Text="{Binding Amount}" VerticalOptions="Center" HorizontalOptions="EndAndExpand" LineBreakMode="WordWrap"/>
+                    </StackLayout>
+                  </ViewCell>
+                </DataTemplate>
+              </ListView.ItemTemplate>
+            </ListView>
+          </StackLayout>
+        </ScrollView>
+      </StackLayout>
+    </Frame>
+  </Grid>
+</ContentPage>

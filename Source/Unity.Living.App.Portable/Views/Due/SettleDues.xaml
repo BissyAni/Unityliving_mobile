@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
+             xmlns:ui="clr-namespace:Unity.Living.App.Portable;assembly=Unity.Living.App.Portable"
+             xmlns:controls="clr-namespace:Unity.Living.App.Portable.Controls;assembly=Unity.Living.App.Portable"
+             x:Class="Unity.Living.App.Portable.Views.Due.SettleDues" >
+
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Name="Update" Order="Primary" Priority="0" Icon="proceed.png" Clicked="Payment_Clicked" />
+  </ContentPage.ToolbarItems>
+  
+  <ScrollView >
+    <StackLayout Orientation="Vertical" Padding="10" BackgroundColor="#e0e0e0" Spacing="10">
+
+      <Frame OutlineColor="Black" HasShadow="True" Padding="2">
+        <StackLayout Orientation="Vertical" Spacing="0">
+        <StackLayout Orientation="Horizontal" BackgroundColor="White" Padding="5">
+          <StackLayout WidthRequest="100">
+            <Label Text="Owner :" TextColor="Black" FontAttributes="Bold" FontSize="14"></Label>
+          </StackLayout>
+          <Label x:Name="owner"></Label>
+        </StackLayout>      
+        <StackLayout Orientation="Horizontal" BackgroundColor="White" Padding="5">
+          <StackLayout WidthRequest="100">
+            <Label Text="Tenant :" TextColor="Black" FontAttributes="Bold" FontSize="14"></Label>
+          </StackLayout>
+          <Label x:Name="tenent"></Label>
+        </StackLayout>
+      </StackLayout>
+      </Frame>
+            
+      <StackLayout Orientation="Vertical" Spacing="1">
+       <StackLayout Padding="5,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Grid.Row="0" HeightRequest="40" BackgroundColor="White">
+          <Label Text="Charges" FontSize="20" FontAttributes="Bold" HorizontalOptions="Start" VerticalTextAlignment="Center" TextColor="#333333"></Label>
+       </StackLayout>
+      
+       <Grid BackgroundColor="White" Padding="5,0,5,0">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="40"/>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="40"/>
+          <RowDefinition Height="*"/>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="30*" ></ColumnDefinition>
+          <ColumnDefinition Width="25*"></ColumnDefinition>
+          <ColumnDefinition Width="20*"></ColumnDefinition>
+          <ColumnDefinition Width="25*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Text="Description"  FontSize="8" Font="Bold, Medium" HorizontalOptions="StartAndExpand" VerticalOptions="Center" LineBreakMode="TailTruncation" />
+        <Label Grid.Column="1" Grid.Row="0" Text="Due Date" FontSize="8" Font="Bold, Medium" HorizontalOptions="StartAndExpand" VerticalOptions="Center" LineBreakMode="WordWrap" />
+        <Label Grid.Column="2" Grid.Row="0" Text="Balance" FontSize="8" Font="Bold, Medium"  HorizontalOptions="StartAndExpand" VerticalOptions="Center" LineBreakMode="WordWrap" />
+        <Label Grid.Column="3" Grid.Row="0" Text="Setting Amount" FontSize="8" Font="Bold, Medium"  HorizontalOptions="StartAndExpand" VerticalOptions="Center" LineBreakMode="WordWrap" />
+       
+        <ListView x:Name="SettleDuesView" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" HasUnevenRows="True" >
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <ViewCell>
+                <Grid>                  
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*" ></ColumnDefinition>
+                    <ColumnDefinition Width="25*"></ColumnDefinition>
+                    <ColumnDefinition Width="18*"></ColumnDefinition>
+                    <ColumnDefinition Width="27*"></ColumnDefinition>
+                  </Grid.ColumnDefinitions>
+                  <Label Grid.Column="0" Text="{Binding Description}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" LineBreakMode="TailTruncation" />
+                  <Label Grid.Column="1" Text="{Binding DueDate}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" LineBreakMode="WordWrap" />
+                  <Label Grid.Column="2" Text="{Binding Balance}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" LineBreakMode="WordWrap" />
+                  <Entry Grid.Column="3" Text="{Binding SettingAmount}" Keyboard="Numeric" PropertyChanged="SettlingAmount_Changed" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                </Grid>
+              </ViewCell>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
+        
+        <StackLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalOptions="End">
+          <Label Text="Grand Total :" FontSize="15" FontAttributes="Bold" VerticalOptions="Center"></Label>
+          <Entry x:Name="grandTotal" WidthRequest="100" IsEnabled="False" VerticalOptions="Center" ></Entry>
+        </StackLayout>
+        <StackLayout Grid.Row="3" Grid.ColumnSpan="4" >
+          <Label Text="Description" FontSize="13" FontAttributes="Bold"></Label>
+          <controls:RoundedEditor HeightRequest="70" x:Name="DescriptionArea" BorderRadius="4" BorderWidth="1" BorderColor="#03a9f4"/>          
+          <Button Text="Pay Dues" Grid.Row="4" x:Name="paymentButton" Clicked="Payment_Clicked" BackgroundColor="#03a9f4" HeightRequest="55" TextColor="White" HorizontalOptions="Fill" FontSize="12"></Button>
+          <StackLayout Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" Orientation="Vertical">
+            <Label Text="Note:" FontAttributes="Bold"></Label>
+            <Label Text="We recommend Net Banking for amount more than Rs.2500 for reduced convenience fee" ></Label>
+          </StackLayout>
+        </StackLayout>
+      </Grid>
+      </StackLayout>
+      
+    </StackLayout>
+  </ScrollView>
+</ContentPage>

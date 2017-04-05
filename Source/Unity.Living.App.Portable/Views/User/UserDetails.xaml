@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Unity.Living.App.Portable.Views.User.UserDetails"
+             Title="{Binding ID, StringFormat='House {0}'}}">
+  
+  <TabbedPage.Children>
+    <ContentPage Title="HOUSE" BackgroundColor="Color.White">
+      <ContentPage.ToolbarItems>
+        <ToolbarItem Name="EditButtonHouseDetails" Clicked="EditButtonHouseDetails_Clicked" Order="Primary" Priority="0" Icon="edit.png" />
+      </ContentPage.ToolbarItems>
+
+      <Grid BackgroundColor="#e0e0e0">        
+          <StackLayout Padding="12">
+            <Frame OutlineColor="Gray" HasShadow="True" Padding="2">
+            <ScrollView>
+              <Grid BackgroundColor="White" Padding="10" RowSpacing="10">
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="6*" />
+                  <ColumnDefinition Width="4*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Email Notification" Grid.Row="0" Grid.Column="0"/>
+                <Image Source="{Binding IsEmailNotification}"  WidthRequest="25" HeightRequest="25" HorizontalOptions="Start"  Grid.Row="0" Grid.Column="1"/>
+                <Label Text="SMS Notification" Grid.Row="1" Grid.Column="0"/>
+                <Image Source="{Binding IsSMSNotification}"  WidthRequest="25" HeightRequest="25" HorizontalOptions="Start"  Grid.Row="1" Grid.Column="1"/>
+                <Label Text="Notify Tenant" Grid.Row="2" Grid.Column="0"/>
+                <Image Source="{Binding IsNotifyTenant}"  WidthRequest="25" HeightRequest="25" HorizontalOptions="Start"  Grid.Row="2" Grid.Column="1"/>
+                <Label Text="Auto Settle Dues from Advance" Grid.Row="3" Grid.Column="0"/>
+                <Image Source="{Binding IsAutoSettleDuesfromAdvance}"  WidthRequest="25" HeightRequest="25" HorizontalOptions="Start"  Grid.Row="3" Grid.Column="1"/>
+                <Label Text="Area (in sq ft)" Grid.Row="4" Grid.Column="0"/>
+                <Label Text="{Binding AreaInSqft}" Grid.Row="4" Grid.Column="1"/>
+                <Label Text="Number of Adults" Grid.Row="5" Grid.Column="0"/>
+                <Label Text="{Binding NumberofAdults}" Grid.Row="5" Grid.Column="1"/>
+                <Label Text="Number of Children" Grid.Row="6" Grid.Column="0"/>
+                <Label Text="{Binding NumberofChildren}" Grid.Row="6" Grid.Column="1"/>
+                <Label Text="Intercom Number" Grid.Row="7" Grid.Column="0"/>
+                <Label Text="{Binding IntercomNumber}" Grid.Row="7" Grid.Column="1"/>
+                <Label Text="Local Body House Number" Grid.Row="8" Grid.Column="0"/>
+                <Label Text="{Binding LocalBodyHouseNumber}" Grid.Row="8" Grid.Column="1"/>
+                <Label Text="Electricity Consumer Number" Grid.Row="9" Grid.Column="0"/>
+                <Label Text="{Binding ElectricityConsumerNumber}" Grid.Row="9" Grid.Column="1"/>
+                <Label Text="Sale Deed Number" Grid.Row="10" Grid.Column="0"/>
+                <Label Text="{Binding SaleDeedNumber}" Grid.Row="10" Grid.Column="1"/>
+                <Label Text="Vehicle Number" Grid.Row="11" Grid.Column="0"/>
+                <Label Text="{Binding VehicleNumber}" Grid.Row="11" Grid.Column="1"/>
+                <Label Text="Vehicle Make" Grid.Row="12" Grid.Column="0"/>
+                <Label Text="{Binding VehicleMake}" Grid.Row="12" Grid.Column="1"/>
+                <Label Text="Comments" Grid.Row="13" Grid.Column="0"/>
+                <Label Text="{Binding Comments}" Grid.Row="13" Grid.Column="1"/>
+              </Grid>
+            </ScrollView>
+            </Frame>
+          </StackLayout>        
+      </Grid>
+    </ContentPage>
+    
+    <ContentPage Title="OWNER" BackgroundColor="Color.White">
+      <ContentPage.ToolbarItems>
+        <ToolbarItem Name="EditButtonOwnerDetails" Clicked="EditButtonOwnerDetails_Clicked" Order="Primary" Priority="0" Icon="edit.png" />
+      </ContentPage.ToolbarItems>
+      
+      <Grid BackgroundColor="#e0e0e0" >
+      <StackLayout Padding="12" >
+        <Frame OutlineColor="Gray" HasShadow="True" Padding="2">
+          <ScrollView>
+            <Grid BackgroundColor="White" Padding="10" HeightRequest="250">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="6*" />
+              </Grid.ColumnDefinitions>
+              <Label Text="Name" Grid.Row="0" Grid.Column="0"/>
+              <Label Text="{Binding owner_name}" Grid.Row="0" Grid.Column="1"/>
+              <Label Text="Address" Grid.Row="1" Grid.Column="0"/>
+              <Label Text="{Binding owner_address}" Grid.Row="1" Grid.Column="1"/>
+              <Label Text="Phone 1" Grid.Row="2" Grid.Column="0"/>
+              <Label Text="{Binding owner_phone1}" Grid.Row="2" Grid.Column="1"/>
+              <Label Text="Phone 2" Grid.Row="3" Grid.Column="0"/>
+              <Label Text="{Binding owner_phone2}" Grid.Row="3" Grid.Column="1"/>
+              <Label Text="Mobile" Grid.Row="4" Grid.Column="0"/>
+              <Label Text="{Binding owner_mobile}" Grid.Row="4" Grid.Column="1"/>
+              <Label Text="Email 1" Grid.Row="5" Grid.Column="0"/>
+              <Label Text="{Binding owner_email}" Grid.Row="5" Grid.Column="1"/>
+              <Label Text="Email 2" Grid.Row="6" Grid.Column="0"/>
+              <Label Text="{Binding owner_email2}" Grid.Row="6" Grid.Column="1"/>
+            </Grid>
+          </ScrollView>
+        </Frame>
+      </StackLayout>
+        </Grid>
+    </ContentPage>
+    
+    <ContentPage Title="TENANT" BackgroundColor="Color.White">
+      <ContentPage.ToolbarItems>
+        <ToolbarItem Name="EditButtonTenantDetails" Clicked="EditButtonTenantDetails_Clicked" Order="Primary" Priority="0" Icon="edit.png" />
+      </ContentPage.ToolbarItems>
+      <Grid BackgroundColor="#e0e0e0">
+        <StackLayout Padding="12">
+          <Frame OutlineColor="Gray" HasShadow="True" Padding="2">
+            <ScrollView>
+              <Grid BackgroundColor="White" Padding="10">
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="*" />
+                  <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Rented" Grid.Row="0" Grid.Column="0"/>
+                <Image Source="{Binding Rented}" WidthRequest="25" HeightRequest="25" HorizontalOptions="Start" VerticalOptions="Start" Grid.Row="0" Grid.Column="1"/>
+                <Label Text="Name" Grid.Row="1" Grid.Column="0"/>
+                <Label Text="{Binding Name}" Grid.Row="1" Grid.Column="1"/>
+                <Label Text="Address" Grid.Row="2" Grid.Column="0"/>
+                <Label Text="{Binding Address}" Grid.Row="2" Grid.Column="1"/>
+                <Label Text="Phone 1" Grid.Row="3" Grid.Column="0"/>
+                <Label Text="{Binding Phone1}" Grid.Row="3" Grid.Column="1"/>
+                <Label Text="Phone 2" Grid.Row="4" Grid.Column="0"/>
+                <Label Text="{Binding Phone2}" Grid.Row="4" Grid.Column="1"/>
+                <Label Text="Mobile" Grid.Row="5" Grid.Column="0"/>
+                <Label Text="{Binding Mobile}" Grid.Row="5" Grid.Column="1"/>
+                <Label Text="Email" Grid.Row="6" Grid.Column="0"/>
+                <Label Text="{Binding Email}" Grid.Row="6" Grid.Column="1"/>
+              </Grid>
+            </ScrollView>
+          </Frame>
+        </StackLayout>
+      </Grid>
+    </ContentPage>
+  </TabbedPage.Children>
+</TabbedPage>

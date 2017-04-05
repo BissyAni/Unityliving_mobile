@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ui:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:ui="clr-namespace:Unity.Living.App.Portable;assembly=Unity.Living.App.Portable"
+                    x:Class="Unity.Living.App.Portable.Views.Receipt.ReceiptView" Title="Receipt">
+  
+<ContentPage.ToolbarItems>  
+  </ContentPage.ToolbarItems>  
+  <StackLayout Orientation="Vertical" Padding="10" HorizontalOptions="Fill" >
+    <StackLayout  Orientation="Horizontal" HorizontalOptions="FillAndExpand"  >
+      <StackLayout WidthRequest="100" HorizontalOptions="FillAndExpand">
+        <Label Text="Date" Font="Bold, Medium" YAlign="Center" HorizontalOptions="StartAndExpand"  LineBreakMode="WordWrap" />
+      </StackLayout>
+      <StackLayout WidthRequest="200" HorizontalOptions="FillAndExpand">
+        <Label Text="Description" Font="Bold, Medium" YAlign="Center" HorizontalOptions="StartAndExpand"  LineBreakMode="WordWrap" />
+      </StackLayout>    
+          <StackLayout WidthRequest="100" HorizontalOptions="FillAndExpand">
+            <Label Text="Amount(Rs)" Font="Bold, Medium" YAlign="Center" HorizontalOptions="StartAndExpand"  LineBreakMode="WordWrap" />
+          </StackLayout>           
+    </StackLayout>
+     <StackLayout Orientation="Horizontal" Padding="0,20,20,0" HorizontalOptions="StartAndExpand">
+       <Label Text="Charges settled" Font="Bold, Medium" FontSize="20"  YAlign="Center" HorizontalOptions="StartAndExpand"  LineBreakMode="WordWrap" />
+    </StackLayout>
+   <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"  >
+      <StackLayout WidthRequest="100" HorizontalOptions="FillAndExpand"> 
+        <Label x:Name="DateCharge" Font="Bold, Medium" YAlign="Center" HorizontalOptions="StartAndExpand"  LineBreakMode="WordWrap" />
+      </StackLayout>
+      <StackLayout WidthRequest="200" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+        <Label x:Name="DescriptionCharge" Font="Bold, Medium" YAlign="Center" HorizontalOptions="StartAndExpand"  LineBreakMode="WordWrap" />
+         <Label x:Name="ChargedAmount" Font="Bold, Medium" YAlign="Center" HorizontalOptions="StartAndExpand"  LineBreakMode="WordWrap" />
+         <Label x:Name="DueDate" Font="Bold, Medium" YAlign="Center" HorizontalOptions="StartAndExpand"  LineBreakMode="WordWrap" />      
+      </StackLayout>    
+          <StackLayout WidthRequest="100" HorizontalOptions="FillAndExpand">
+            <Label x:Name="AmountCharge" Font="Bold, Medium" YAlign="Center" HorizontalOptions="StartAndExpand"  LineBreakMode="WordWrap" />
+          </StackLayout>           
+    </StackLayout>
+    <StackLayout Orientation="Horizontal" Padding="0,20,20,0"  HorizontalOptions="StartAndExpand">
+       <Label Text="Payment received" Font="Bold, Medium" FontSize="20" YAlign="Center" HorizontalOptions="StartAndExpand"  LineBreakMode="WordWrap" />
+    </StackLayout>
+  <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"  >
+      <StackLayout WidthRequest="100" HorizontalOptions="FillAndExpand"> 
+        <Label x:Name="DatePay" Font="Bold, Medium" YAlign="Center" HorizontalOptions="StartAndExpand"  LineBreakMode="WordWrap" />
+      </StackLayout>
+      <StackLayout WidthRequest="200" HorizontalOptions="FillAndExpand">
+        <Label x:Name="DescriptionPay" Font="Bold, Medium" YAlign="Center" HorizontalOptions="StartAndExpand"  LineBreakMode="WordWrap" />
+      </StackLayout>    
+          <StackLayout WidthRequest="100" HorizontalOptions="FillAndExpand">
+            <Label x:Name="AmountPay" Font="Bold, Medium" YAlign="Center" HorizontalOptions="StartAndExpand"  LineBreakMode="WordWrap" />
+          </StackLayout>           
+    </StackLayout>  
+  <StackLayout Orientation="Horizontal" Padding="0,50,50,50" HorizontalOptions="StartAndExpand">
+       <Label Text="Advance Account Balance: " FontSize="20" Font="Bold, Medium" YAlign="Center" HorizontalOptions="StartAndExpand"  LineBreakMode="WordWrap" />
+     <Label  x:Name="AdvanceBalance" FontSize="20" Font="Bold, Medium" YAlign="Center" HorizontalOptions="StartAndExpand"  LineBreakMode="WordWrap" />
+    </StackLayout>
+  </StackLayout>
+</ui:BaseContentPage>
